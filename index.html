@@ -81,8 +81,8 @@ nav a:hover{color:var(--ice);}
 
 /* HERO */
 #hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:8rem 4rem 4rem;position:relative;overflow:hidden;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:8rem 4rem 4rem;position:relative;overflow:hidden;text-align:center;
 }
 .hero-glow{
   position:absolute;right:-200px;top:50%;transform:translateY(-50%);
@@ -92,37 +92,9 @@ nav a:hover{color:var(--ice);}
 }
 @keyframes pulse3d{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-50%) scale(1.08)}}
 
-.hero-3d{
-  position:absolute;right:5%;top:50%;transform:translateY(-50%);
-  width:420px;height:420px;pointer-events:none;
-}
-.orb{
-  width:100%;height:100%;border-radius:50%;
-  background:radial-gradient(ellipse at 35% 35%,var(--crimson) 0%,#1A0510 60%,transparent 100%);
-  box-shadow:
-    inset -30px -30px 60px rgba(0,0,0,0.8),
-    inset 20px 20px 40px rgba(91,30,50,0.5),
-    0 0 80px rgba(183,225,218,0.1),
-    0 0 160px rgba(91,30,50,0.3);
-  animation:orbFloat 7s ease-in-out infinite;
-  position:relative;
-}
-@keyframes orbFloat{0%,100%{transform:translateY(0) rotateY(0deg)}50%{transform:translateY(-20px) rotateY(15deg)}}
-.orb::before{
-  content:'';position:absolute;
-  width:140%;height:25%;
-  background:radial-gradient(ellipse,rgba(183,225,218,0.15) 0%,transparent 70%);
-  bottom:-15%;left:-20%;border-radius:50%;
-  filter:blur(12px);
-  animation:ringFloat 7s ease-in-out infinite;
-}
-@keyframes ringFloat{0%,100%{transform:rotateX(75deg) scaleX(1)}50%{transform:rotateX(75deg) scaleX(1.05)}}
-.orb::after{
-  content:'';position:absolute;inset:15%;border-radius:50%;
-  background:radial-gradient(circle at 40% 40%,rgba(183,225,218,0.12) 0%,transparent 60%);
-}
 
-.hero-content{position:relative;z-index:1;max-width:650px;}
+
+.hero-content{position:relative;z-index:1;max-width:700px;margin:0 auto;}
 .hero-tag{
   display:inline-flex;align-items:center;gap:0.6rem;
   background:var(--ice-dim);border:1px solid var(--border);
@@ -158,7 +130,7 @@ nav a:hover{color:var(--ice);}
 }
 .hero-mini{font-size:0.82rem;color:var(--ice);margin-bottom:3rem;font-style:italic;}
 
-.hero-links{display:flex;gap:0.8rem;flex-wrap:wrap;}
+.hero-links{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;}
 .hl{
   display:inline-flex;align-items:center;gap:0.4rem;
   padding:0.75rem 1.6rem;border-radius:0.5rem;font-size:0.82rem;
@@ -287,7 +259,7 @@ nav a:hover{color:var(--ice);}
 .sk-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
 
 /* CERTS */
-.cert-grid{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.cert-grid{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}
 .cert-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:0.8rem;padding:1.6rem 2rem;
@@ -381,7 +353,25 @@ body.fr-active .en-inline{display:none;}
   .about-grid{grid-template-columns:1fr;gap:3rem;}
   nav{display:none;}
 }
+
+.q-btn {
+  width:100%;text-align:left;padding:1rem 1.5rem;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:0.8rem;color:var(--gray);
+  font-family:'Inter',sans-serif;font-size:0.88rem;
+  cursor:pointer;transition:all 0.3s;backdrop-filter:blur(10px);
+}
+.q-btn:hover { border-color:var(--ice);color:var(--ice);transform:translateX(4px); }
+.q-btn.selected { border-color:var(--ice);color:var(--ice);background:rgba(183,225,218,0.08); }
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y63G7T8J70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y63G7T8J70');
+</script>
 </head>
 <body>
 
@@ -408,12 +398,12 @@ body.fr-active .en-inline{display:none;}
 
 <section id="hero">
   <div class="hero-glow"></div>
-  <div class="hero-3d"><div class="orb"></div></div>
+  
   <div class="hero-content">
     <div class="hero-tag">
       <span class="dot-live"></span>
-      <span class="en-inline">Available October 2026 · Open to relocation</span>
-      <span class="fr-inline">Disponible octobre 2026 · Mobile</span>
+      <span class="en-inline">Available from October 2026 · Open to relocation</span>
+      <span class="fr-inline">Disponible dès octobre 2026 · Mobile</span>
     </div>
     <h1 class="hero-name">
       <span class="line1">Salma</span>
@@ -424,8 +414,7 @@ body.fr-active .en-inline{display:none;}
       <span class="en-inline">State Engineer | AI & Machine Learning</span>
       <span class="fr-inline">Ingénieure d'État | IA & Machine Learning</span>
     </p>
-    <p class="hero-quote">Fast learner, big ambitions —<br>building real AI, one solution at a time</p>
-    <p class="hero-mini">Engineer. Builder. Learner.</p>
+    <p class="hero-quote"><span class="en-inline">Engineer by training. AI by passion. Human by design.</span><span class="fr-inline">Une base d'ingénieur, une passion pour l'IA, et une vision centrée sur l'humain.</span></p>
     <div class="hero-links">
       <a href="mailto:alaouisalma065@gmail.com" class="hl p">✉ <span class="en-inline">Contact</span><span class="fr-inline">Me contacter</span></a>
       <a href="https://github.com/Salma928" class="hl" target="_blank">⌥ GitHub</a>
@@ -447,13 +436,11 @@ body.fr-active .en-inline{display:none;}
   <h2 class="s-title reveal"><span class="en"><span>About</span> me</span><span class="fr"><span>À</span> propos</span></h2>
   <div class="about-grid">
     <div>
-      <p class="about-text reveal">"Ingénieure d'État spécialisée en Intelligence Artificielle, en fin d'études et forte de plusieurs expériences de stages, passionnée, rigoureuse et toujours prête à relever de nouveaux défis."</p>
-      <div class="soft-grid">
-        <div class="soft-pill reveal">⚡ Fast Learner</div>
-        <div class="soft-pill reveal">🔄 <span class="en-inline">Adaptability</span><span class="fr-inline">Adaptabilité</span></div>
-        <div class="soft-pill reveal">🌿 <span class="en-inline">Flexibility</span><span class="fr-inline">Flexibilité</span></div>
-        <div class="soft-pill reveal">🔭 <span class="en-inline">Curiosity</span><span class="fr-inline">Curiosité</span></div>
-      </div>
+      <p class="about-text reveal">
+        <span class="en">State Engineer currently in my final year of a Master's degree in Artificial Intelligence, I have gained several internship experiences in diverse environments, where I faced various challenges and real-world use cases. Passionate, rigorous and always eager to take on new challenges, I am looking for my first long-term professional experience.</span>
+        <span class="fr">Ingénieure d'État et actuellement en dernière année de Master 2 en intelligence artificielle, j'ai acquis plusieurs expériences en stage au sein d'environnements variés, où j'ai été confrontée à différents défis et cas d'usage concrets. Passionnée, rigoureuse et toujours partante pour relever de nouveaux challenges, je suis à la recherche de ma première expérience professionnelle de longue durée.</span>
+      </p>
+      
     </div>
     <div class="timeline">
       <div class="tl-item">
@@ -466,8 +453,8 @@ body.fr-active .en-inline{display:none;}
         <div class="tl-dot"></div>
         <p class="tl-year">2019 — 2025</p>
         <p class="tl-school"><span class="en">State Engineer Degree — Electronic & Automatic Systems</span><span class="fr">Diplôme d'Ingénieur d'État — Systèmes Électroniques et Automatiques</span></p>
-        <p class="tl-degree">ENSA · <span class="en">Tangier, Morocco</span><span class="fr">Tanger, Maroc</span></p>
-        <p class="tl-modules">Statistics & Optimization · Computer Science · Image Processing · C++ · Electronics · Embedded Systems...</p>
+        <p class="tl-degree"><span class="en">National School of Applied Sciences · Tangier, Morocco</span><span class="fr">École Nationale des Sciences Appliquées · Tanger, Maroc</span></p>
+        <p class="tl-modules">Statistics & Optimization · Computer Science · Image Processing · C++ · Electronics · Embedded Systems · Automatic Systems...</p>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
@@ -546,6 +533,28 @@ body.fr-active .en-inline{display:none;}
 
 <div class="divider"></div>
 
+<div class="wrap" id="stats">
+  <p class="s-label reveal">Numbers</p>
+  <h2 class="s-title reveal">By the <span>numbers</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:700px;margin:0 auto">
+    <div class="stat-card reveal" style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2.5rem 1.5rem;text-align:center;backdrop-filter:blur(15px);box-shadow:0 4px 30px rgba(0,0,0,0.3);">
+      <div class="stat-num" data-target="15" style="font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:var(--ice);line-height:1;">0</div>
+      <div style="font-size:0.75rem;color:var(--gray);margin-top:0.5rem;letter-spacing:0.1em;text-transform:uppercase;"><span class="en-inline">LLMs tested</span><span class="fr-inline">LLMs testés</span></div>
+      <div style="font-size:1.2rem;color:var(--ice);margin-top:0.2rem;">+</div>
+    </div>
+    <div class="stat-card reveal" style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2.5rem 1.5rem;text-align:center;backdrop-filter:blur(15px);box-shadow:0 4px 30px rgba(0,0,0,0.3);">
+      <div class="stat-num" data-target="4" style="font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:var(--ice);line-height:1;">0</div>
+      <div style="font-size:0.75rem;color:var(--gray);margin-top:0.5rem;letter-spacing:0.1em;text-transform:uppercase;"><span class="en-inline">Internships</span><span class="fr-inline">Stages</span></div>
+    </div>
+    <div class="stat-card reveal" style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2.5rem 1.5rem;text-align:center;backdrop-filter:blur(15px);box-shadow:0 4px 30px rgba(0,0,0,0.3);">
+      <div class="stat-num" data-target="2" style="font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:var(--ice);line-height:1;">0</div>
+      <div style="font-size:0.75rem;color:var(--gray);margin-top:0.5rem;letter-spacing:0.1em;text-transform:uppercase;"><span class="en-inline">Countries</span><span class="fr-inline">Pays</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <!-- SKILLS -->
 <div class="wrap" id="skills">
   <p class="s-label reveal"><span class="en-inline">Toolkit</span><span class="fr-inline">Boîte à outils</span></p>
@@ -568,20 +577,124 @@ body.fr-active .en-inline{display:none;}
   <h2 class="s-title reveal"><span class="en">Certif<span>ications</span></span><span class="fr">Certif<span>ications</span></span></h2>
   <div class="cert-grid">
     <a class="cert-card" href="https://www.coursera.org/account/accomplishments/verify/4YNRPCM26H6F" target="_blank">
-      <img src="https://logo.clearbit.com/ibm.com" class="cert-logo" alt="IBM">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="cert-logo" alt="IBM" style="background:white;padding:8px;border-radius:8px;">
       <div><p class="cert-name">Exploratory Data Analysis for ML</p><p class="cert-org">IBM / Coursera</p><p class="cert-year">2024 · View →</p></div>
     </a>
     <div class="cert-card">
-      <img src="https://logo.clearbit.com/ibm.com" class="cert-logo" alt="IBM">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="cert-logo" alt="IBM" style="background:white;padding:8px;border-radius:8px;">
       <div><p class="cert-name">AI Fundamentals</p><p class="cert-org">IBM SkillsBuild</p><p class="cert-year">2026</p></div>
     </div>
     <div class="cert-card">
-      <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><rect width='48' height='48' fill='%235B1E32' rx='8'/><text x='24' y='32' text-anchor='middle' fill='%23B7E1DA' font-size='13' font-family='sans-serif' font-weight='bold'>TCF</text></svg>" class="cert-logo" alt="TCF">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/France_Education_International.svg/200px-France_Education_International.svg.png" class="cert-logo" alt="TCF" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%2248%22 height=%2248%22 fill=%22%235B1E32%22 rx=%228%22/><text x=%2224%22 y=%2232%22 text-anchor=%22middle%22 fill=%22%23B7E1DA%22 font-size=%2213%22 font-family=%22sans-serif%22 font-weight=%22bold%22>TCF</text></svg>'" style="background:white;padding:6px;border-radius:8px;">
       <div><p class="cert-name">Test de Connaissance du Français</p><p class="cert-org">France Éducation International</p><p class="cert-year">Niveau C1</p></div>
     </div>
     <div class="cert-card">
-      <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><rect width='48' height='48' fill='%23351E28' rx='8'/><text x='24' y='30' text-anchor='middle' fill='%23B7E1DA' font-size='10' font-family='sans-serif' font-weight='bold'>TOEIC</text></svg>" class="cert-logo" alt="TOEIC">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/ETS_logo.svg/200px-ETS_logo.svg.png" class="cert-logo" alt="TOEIC" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect width=%2248%22 height=%2248%22 fill=%22%23351E28%22 rx=%228%22/><text x=%2224%22 y=%2230%22 text-anchor=%22middle%22 fill=%22%23B7E1DA%22 font-size=%2210%22 font-family=%22sans-serif%22 font-weight=%22bold%22>TOEIC</text></svg>'" style="background:white;padding:6px;border-radius:8px;">
       <div><p class="cert-name">TOEIC — Test of English</p><p class="cert-org">ETS Global</p><p class="cert-year">Niveau B2</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap" id="quiz">
+  <p class="s-label reveal">Fun</p>
+  <h2 class="s-title reveal">Which <span>LLM</span> are you?</h2>
+  <p class="reveal" style="color:var(--gray);margin-bottom:3rem;font-size:0.92rem;">
+    <span class="en-inline">Answer 3 questions to find out which AI model matches your personality.</span>
+    <span class="fr-inline">Répondez à 3 questions pour découvrir quel modèle IA correspond à votre personnalité.</span>
+  </p>
+
+  <div id="quiz-container" style="max-width:600px;margin:0 auto;">
+    <div id="quiz-progress" style="display:flex;gap:0.5rem;margin-bottom:2rem;">
+      <div class="q-dot active" style="height:3px;flex:1;background:var(--ice);border-radius:2px;transition:all 0.3s;"></div>
+      <div class="q-dot" style="height:3px;flex:1;background:var(--border);border-radius:2px;transition:all 0.3s;"></div>
+      <div class="q-dot" style="height:3px;flex:1;background:var(--border);border-radius:2px;transition:all 0.3s;"></div>
+    </div>
+
+    <div id="quiz-content">
+      <div class="quiz-q" data-q="0" style="display:block;">
+        <p style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:1.5rem;">
+          <span class="en-inline">How do you approach a problem?</span>
+          <span class="fr-inline">Comment abordez-vous un problème ?</span>
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;">
+          <button class="q-btn" data-q="0" data-v="claude" onclick="answer(this)">
+            <span class="en-inline">I think deeply before answering</span>
+            <span class="fr-inline">Je réfléchis en profondeur avant de répondre</span>
+          </button>
+          <button class="q-btn" data-q="0" data-v="gpt" onclick="answer(this)">
+            <span class="en-inline">I go fast and iterate</span>
+            <span class="fr-inline">Je vais vite et j'itère</span>
+          </button>
+          <button class="q-btn" data-q="0" data-v="mistral" onclick="answer(this)">
+            <span class="en-inline">I question everything</span>
+            <span class="fr-inline">Je remets tout en question</span>
+          </button>
+          <button class="q-btn" data-q="0" data-v="llama" onclick="answer(this)">
+            <span class="en-inline">I do it my own way</span>
+            <span class="fr-inline">Je fais à ma façon</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="1" style="display:none;">
+        <p style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:1.5rem;">
+          <span class="en-inline">Your work style?</span>
+          <span class="fr-inline">Votre style de travail ?</span>
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;">
+          <button class="q-btn" data-q="1" data-v="claude" onclick="answer(this)">
+            <span class="en-inline">Precise and structured</span>
+            <span class="fr-inline">Précis et structuré</span>
+          </button>
+          <button class="q-btn" data-q="1" data-v="gpt" onclick="answer(this)">
+            <span class="en-inline">Creative and flexible</span>
+            <span class="fr-inline">Créatif et flexible</span>
+          </button>
+          <button class="q-btn" data-q="1" data-v="mistral" onclick="answer(this)">
+            <span class="en-inline">Efficient and direct</span>
+            <span class="fr-inline">Efficace et direct</span>
+          </button>
+          <button class="q-btn" data-q="1" data-v="llama" onclick="answer(this)">
+            <span class="en-inline">Experimental and bold</span>
+            <span class="fr-inline">Expérimental et audacieux</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="2" style="display:none;">
+        <p style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:1.5rem;">
+          <span class="en-inline">Your superpower?</span>
+          <span class="fr-inline">Votre super-pouvoir ?</span>
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;">
+          <button class="q-btn" data-q="2" data-v="claude" onclick="answer(this)">
+            <span class="en-inline">Understanding context deeply</span>
+            <span class="fr-inline">Comprendre le contexte en profondeur</span>
+          </button>
+          <button class="q-btn" data-q="2" data-v="gpt" onclick="answer(this)">
+            <span class="en-inline">Generating ideas fast</span>
+            <span class="fr-inline">Générer des idées rapidement</span>
+          </button>
+          <button class="q-btn" data-q="2" data-v="mistral" onclick="answer(this)">
+            <span class="en-inline">Being open and transparent</span>
+            <span class="fr-inline">Être ouvert et transparent</span>
+          </button>
+          <button class="q-btn" data-q="2" data-v="llama" onclick="answer(this)">
+            <span class="en-inline">Doing more with less</span>
+            <span class="fr-inline">Faire plus avec moins</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="quiz-result" style="display:none;text-align:center;animation:msgIn 0.5s ease;">
+        <div id="result-content"></div>
+        <button onclick="resetQuiz()" style="margin-top:2rem;background:transparent;border:1px solid var(--border);color:var(--gray);padding:0.6rem 1.5rem;border-radius:2rem;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.85rem;transition:all 0.3s;" onmouseover="this.style.borderColor='var(--ice)';this.style.color='var(--ice)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--gray)'">
+          <span class="en-inline">Try again</span>
+          <span class="fr-inline">Réessayer</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -603,18 +716,18 @@ body.fr-active .en-inline{display:none;}
     <a href="https://my.assessfirst.com/public/profile/8dz9ebjr-salma-bentahar-alaoui?lang=fr-FR" class="c-link" target="_blank">★ AssessFirst</a>
   </div>
   <div class="c-form reveal">
-    <form action="https://formspree.io/f/YOUR_ID" method="POST">
+    <form action="https://formspree.io/f/xqevqzva" method="POST">
       <div class="f-group">
         <label class="f-label"><span class="en-inline">Name</span><span class="fr-inline">Nom</span></label>
-        <input class="f-input" type="text" name="name" placeholder="John Doe" required>
+        <input class="f-input" type="text" name="name" placeholder="Don't hesitate, let's connect!" required>
       </div>
       <div class="f-group">
         <label class="f-label">Email</label>
-        <input class="f-input" type="email" name="email" placeholder="john@company.com" required>
+        <input class="f-input" type="email" name="email" placeholder="your@email.com" required>
       </div>
       <div class="f-group">
         <label class="f-label"><span class="en-inline">How can I help you?</span><span class="fr-inline">Comment puis-je vous aider ?</span></label>
-        <textarea class="f-ta" name="message" placeholder="..." required></textarea>
+        <textarea class="f-ta" name="message" placeholder="Let's work together..." required></textarea>
       </div>
       <button type="submit" class="f-submit">
         <span class="en-inline">Send message ✉</span>
@@ -731,6 +844,87 @@ async function sendMsg(){
   }catch(e){remTyp();addMsg("Reach me at alaouisalma065@gmail.com 😊",'bot');}
   cbLoad=false;document.getElementById('cbSend').disabled=false;i.focus();
 }
+
+/* STATS COUNTER */
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nums = entry.target.querySelectorAll('.stat-num');
+      nums.forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'));
+        let current = 0;
+        const step = target / 60;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current);
+          if (current >= target) clearInterval(timer);
+        }, 16);
+      });
+      statObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+const statsWrap = document.getElementById('stats');
+if (statsWrap) statObs.observe(statsWrap);
+
+
+/* QUIZ */
+let quizAnswers = [];
+const results = {
+  claude: {
+    en: { title: "You are Claude", desc: "Thoughtful, nuanced and detail-oriented. You take the time to truly understand before acting. Depth is your strength." },
+    fr: { title: "Vous êtes Claude", desc: "Réfléchi, nuancé et orienté détail. Vous prenez le temps de vraiment comprendre avant d'agir. La profondeur est votre force." }
+  },
+  gpt: {
+    en: { title: "You are GPT-5.5", desc: "Fast, powerful and always up to date. You thrive under pressure and love generating ideas at speed." },
+    fr: { title: "Vous êtes GPT-5.5", desc: "Rapide, puissant et toujours à jour. Vous excellez sous pression et adorez générer des idées à toute vitesse." }
+  },
+  mistral: {
+    en: { title: "You are Mistral", desc: "Efficient, direct and no-nonsense. You get things done without unnecessary complexity. Less is more." },
+    fr: { title: "Vous êtes Mistral", desc: "Efficace, direct et sans fioritures. Vous accomplissez les choses sans complexité inutile. Le moins est le plus." }
+  },
+  llama: {
+    en: { title: "You are Llama", desc: "Open-minded, independent and free spirit. You forge your own path and inspire others to do the same." },
+    fr: { title: "Vous êtes Llama", desc: "Ouvert d'esprit, indépendant et esprit libre. Vous tracez votre propre chemin et inspirez les autres à faire de même." }
+  }
+};
+
+function answer(btn) {
+  const q = parseInt(btn.getAttribute('data-q'));
+  const v = btn.getAttribute('data-v');
+  quizAnswers[q] = v;
+  btn.classList.add('selected');
+  setTimeout(() => {
+    if (q < 2) {
+      document.querySelector('.quiz-q[data-q="'+q+'"]').style.display = 'none';
+      document.querySelector('.quiz-q[data-q="'+(q+1)+'"]').style.display = 'block';
+      document.querySelectorAll('.q-dot')[q+1].style.background = 'var(--ice)';
+    } else {
+      const counts = {};
+      quizAnswers.forEach(a => counts[a] = (counts[a]||0)+1);
+      const top = Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];
+      const isFr = document.body.classList.contains('fr-active');
+      const r = results[top][isFr?'fr':'en'];
+      document.getElementById('result-content').innerHTML = `
+        <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--ice);margin-bottom:1rem;">${r.title}</div>
+        <p style="color:var(--gray);font-size:0.95rem;line-height:1.7;max-width:400px;margin:0 auto;">${r.desc}</p>
+      `;
+      document.querySelectorAll('.quiz-q').forEach(q=>q.style.display='none');
+      document.getElementById('quiz-result').style.display = 'block';
+    }
+  }, 300);
+}
+
+function resetQuiz() {
+  quizAnswers = [];
+  document.querySelectorAll('.q-btn').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('quiz-result').style.display = 'none';
+  document.querySelector('.quiz-q[data-q="0"]').style.display = 'block';
+  document.querySelectorAll('.quiz-q[data-q="1"], .quiz-q[data-q="2"]').forEach(q=>q.style.display='none');
+  document.querySelectorAll('.q-dot').forEach((d,i)=>d.style.background=i===0?'var(--ice)':'var(--border)');
+}
+
 </script>
 </body>
 </html>
