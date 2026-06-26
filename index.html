@@ -269,8 +269,8 @@ nav a:hover{color:var(--ice);}
 .cert-grid{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}
 .cert-card{
   background:var(--card);border:1px solid var(--border);
-  border-radius:1.2rem;padding:2rem 2.5rem;
-  display:flex;align-items:center;gap:1.5rem;
+  border-radius:1.2rem;padding:1.5rem;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:0.8rem;
   backdrop-filter:blur(15px);opacity:0;transform:scale(0.95);
   transition:all 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
   text-decoration:none;color:inherit;
@@ -846,24 +846,31 @@ async function sendMsg(){
 }
 
 /* STATS COUNTER */
+function animateCounter(el, target, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.round(start);
+    if (start >= target) {
+      el.textContent = target;
+      clearInterval(timer);
+    }
+  }, 16);
+}
+
 const statObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const nums = entry.target.querySelectorAll('.stat-num');
       nums.forEach(el => {
         const target = parseInt(el.getAttribute('data-target'));
-        let current = 0;
-        const step = target / 60;
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = Math.round(current);
-          if (current >= target) clearInterval(timer);
-        }, 16);
+        animateCounter(el, target, 1500);
       });
       statObs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.2 });
 
 const statsWrap = document.getElementById('stats');
 if (statsWrap) statObs.observe(statsWrap);
