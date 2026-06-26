@@ -19,16 +19,46 @@
   --card: rgba(53,30,40,0.6);
 }
 [data-theme="light"] {
-  --plum: #F5F0F2;
-  --plum-mid: #EDE4E8;
-  --crimson: #5B1E32;
-  --ice: #2A6B62;
-  --ice-dim: rgba(42,107,98,0.1);
-  --ice-glow: rgba(42,107,98,0.06);
+  --plum: #FAF7F5;
+  --plum-mid: #F0E8EC;
+  --crimson: #8B2E4A;
+  --ice: #1A5C54;
+  --ice-dim: rgba(26,92,84,0.12);
+  --ice-glow: rgba(26,92,84,0.08);
   --white: #1A0F14;
-  --gray: #6B5560;
-  --border: rgba(91,30,50,0.15);
-  --card: rgba(255,255,255,0.8);
+  --gray: #5A4A52;
+  --border: rgba(91,30,50,0.12);
+  --card: rgba(255,255,255,0.9);
+}
+[data-theme="light"] header {
+  background: rgba(250,247,245,0.85);
+}
+[data-theme="light"] .hero-name .line1 { color: #1A0F14; }
+[data-theme="light"] .hero-name .line3 { color: rgba(26,15,20,0.4); }
+[data-theme="light"] .s-title { color: #1A0F14; }
+[data-theme="light"] .tl-school { color: #1A0F14; }
+[data-theme="light"] .exp-org { color: #1A0F14; }
+[data-theme="light"] .proj-title { color: #1A0F14; }
+[data-theme="light"] .cert-name { color: #1A0F14; }
+[data-theme="light"] .cb-win { background: #FAF7F5; }
+[data-theme="light"] .cb-hd { background: rgba(91,30,50,0.06); }
+[data-theme="light"] .msg.bot .mb { background: #F0E8EC; color: #1A0F14; }
+[data-theme="light"] .chat-header-name { color: #1A0F14; }
+[data-theme="light"] .cb-input { background: #F0E8EC; color: #1A0F14; }
+[data-theme="light"] .f-input, [data-theme="light"] .f-ta { background: #F0E8EC; color: #1A0F14; }
+[data-theme="light"] .q-btn { background: rgba(255,255,255,0.9); color: #5A4A52; }
+[data-theme="light"] .hero-tag { background: rgba(26,92,84,0.08); }
+[data-theme="light"] .sk-group { background: rgba(255,255,255,0.9); }
+[data-theme="light"] .proj-card { background: rgba(255,255,255,0.9); }
+[data-theme="light"] .exp-card { background: rgba(255,255,255,0.85); }
+[data-theme="light"] .about-text { color: #5A4A52; }
+[data-theme="light"] .scroll-hint { color: #5A4A52; }
+[data-theme="light"] #cur-canvas { opacity: 0.6; }
+[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 15%, rgba(26,92,84,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 85%, rgba(139,46,74,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(26,92,84,0.04) 0%, transparent 60%);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -107,8 +137,8 @@ nav a:hover{color:var(--ice);}
 
 .hero-name{
   font-family:'Syne',sans-serif;
-  font-size:clamp(3.5rem,8vw,7rem);
-  font-weight:800;line-height:0.95;letter-spacing:-0.04em;
+  font-size:clamp(2.5rem,5.5vw,5rem);
+  font-weight:800;line-height:1.05;letter-spacing:-0.03em;
   margin-bottom:1.5rem;
 }
 .hero-name .line1{color:var(--white);display:block;}
@@ -262,19 +292,19 @@ nav a:hover{color:var(--ice);}
 .cert-grid{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}
 .cert-card{
   background:var(--card);border:1px solid var(--border);
-  border-radius:0.8rem;padding:1.6rem 2rem;
-  display:flex;align-items:center;gap:1.2rem;
+  border-radius:1.2rem;padding:2rem 2.5rem;
+  display:flex;align-items:center;gap:1.5rem;
   backdrop-filter:blur(15px);opacity:0;transform:scale(0.95);
   transition:all 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
   text-decoration:none;color:inherit;
-  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+  box-shadow:0 4px 30px rgba(0,0,0,0.2);
 }
 .cert-card.visible{opacity:1;transform:scale(1);}
 .cert-card:hover{border-color:rgba(183,225,218,0.25);transform:scale(1.02) translateY(-3px);box-shadow:0 15px 50px rgba(0,0,0,0.3);}
-.cert-logo{width:48px;height:48px;object-fit:contain;border-radius:8px;background:white;padding:5px;}
+.cert-logo{width:60px;height:60px;object-fit:contain;border-radius:10px;background:white;padding:7px;box-shadow:0 2px 10px rgba(0,0,0,0.15);}
 .cert-name{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--white);margin-bottom:0.2rem;}
-.cert-org{font-size:0.76rem;color:var(--gray);}
-.cert-year{font-size:0.72rem;color:var(--ice);margin-top:0.2rem;font-weight:600;}
+.cert-org{font-size:0.82rem;color:var(--gray);margin-bottom:0.2rem;}
+.cert-year{font-size:0.78rem;color:var(--ice);margin-top:0.3rem;font-weight:600;}
 
 /* CONTACT */
 #contact{text-align:center;}
