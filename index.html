@@ -18,48 +18,30 @@
   --border: rgba(183,225,218,0.12);
   --card: rgba(53,30,40,0.6);
 }
-[data-theme="light"] {
-  --plum: #FAF7F5;
-  --plum-mid: #F0E8EC;
-  --crimson: #8B2E4A;
-  --ice: #1A5C54;
-  --ice-dim: rgba(26,92,84,0.12);
-  --ice-glow: rgba(26,92,84,0.08);
-  --white: #1A0F14;
-  --gray: #5A4A52;
-  --border: rgba(91,30,50,0.12);
-  --card: rgba(255,255,255,0.9);
-}
-[data-theme="light"] header {
-  background: rgba(250,247,245,0.85);
-}
-[data-theme="light"] .hero-name .line1 { color: #1A0F14; }
-[data-theme="light"] .hero-name .line3 { color: rgba(26,15,20,0.4); }
-[data-theme="light"] .s-title { color: #1A0F14; }
-[data-theme="light"] .tl-school { color: #1A0F14; }
-[data-theme="light"] .exp-org { color: #1A0F14; }
-[data-theme="light"] .proj-title { color: #1A0F14; }
-[data-theme="light"] .cert-name { color: #1A0F14; }
-[data-theme="light"] .cb-win { background: #FAF7F5; }
-[data-theme="light"] .cb-hd { background: rgba(91,30,50,0.06); }
-[data-theme="light"] .msg.bot .mb { background: #F0E8EC; color: #1A0F14; }
-[data-theme="light"] .chat-header-name { color: #1A0F14; }
-[data-theme="light"] .cb-input { background: #F0E8EC; color: #1A0F14; }
-[data-theme="light"] .f-input, [data-theme="light"] .f-ta { background: #F0E8EC; color: #1A0F14; }
-[data-theme="light"] .q-btn { background: rgba(255,255,255,0.9); color: #5A4A52; }
-[data-theme="light"] .hero-tag { background: rgba(26,92,84,0.08); }
-[data-theme="light"] .sk-group { background: rgba(255,255,255,0.9); }
-[data-theme="light"] .proj-card { background: rgba(255,255,255,0.9); }
-[data-theme="light"] .exp-card { background: rgba(255,255,255,0.85); }
-[data-theme="light"] .about-text { color: #5A4A52; }
-[data-theme="light"] .scroll-hint { color: #5A4A52; }
-[data-theme="light"] #cur-canvas { opacity: 0.6; }
-[data-theme="light"] body::before {
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 15%, rgba(26,92,84,0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 85%, rgba(139,46,74,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(26,92,84,0.04) 0%, transparent 60%);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -135,12 +117,7 @@ nav a:hover{color:var(--ice);}
 .dot-live{width:7px;height:7px;background:#22C55E;border-radius:50%;box-shadow:0 0 8px #22C55E;animation:blink 2s infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 
-.hero-name{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2.5rem,5.5vw,5rem);
-  font-weight:800;line-height:1.05;letter-spacing:-0.03em;
-  margin-bottom:1.5rem;
-}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5.5vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem;}
 .hero-name .line1{color:var(--white);display:block;}
 .hero-name .line2{
   display:block;
@@ -422,7 +399,7 @@ body.fr-active .en-inline{display:none;}
     <a href="https://www.linkedin.com/in/salma-alaoui-369284241" target="_blank" class="h-icon">in</a>
     <button class="h-btn active" onclick="setLang('en',this)">EN</button>
     <button class="h-btn" onclick="setLang('fr',this)">FR</button>
-    <button class="h-icon" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    
   </div>
 </header>
 
@@ -436,9 +413,8 @@ body.fr-active .en-inline{display:none;}
       <span class="fr-inline">Disponible dès octobre 2026 · Mobile</span>
     </div>
     <h1 class="hero-name">
-      <span class="line1">Salma</span>
-      <span class="line2">Bentahar</span>
-      <span class="line3">Alaoui</span>
+      <span class="line1" style="display:block;">Salma Bentahar</span>
+      <span class="line2" style="display:block;text-align:center;">Alaoui</span>
     </h1>
     <p class="hero-sub">
       <span class="en-inline">State Engineer | AI & Machine Learning</span>
@@ -824,13 +800,7 @@ window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left
   requestAnimationFrame(anim);
 })();
 
-/* THEME */
-function toggleTheme(){
-  const h=document.documentElement;
-  const d=h.getAttribute('data-theme')==='dark';
-  h.setAttribute('data-theme',d?'light':'dark');
-  document.getElementById('themeBtn').textContent=d?'🌙':'☀️';
-}
+
 
 /* LANG */
 function setLang(lang,btn){
