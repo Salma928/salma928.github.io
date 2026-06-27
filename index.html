@@ -852,19 +852,93 @@ function sendSugg(el){document.getElementById('cbInput').value=el.textContent.re
 function addMsg(t,r){const m=document.getElementById('cbMsgs');const d=document.createElement('div');d.className=`msg ${r}`;d.innerHTML=`<div class="mb">${t}</div>`;m.appendChild(d);m.scrollTop=m.scrollHeight;}
 function showTyp(){const m=document.getElementById('cbMsgs');const d=document.createElement('div');d.className='msg bot';d.id='typ';d.innerHTML='<div class="mb typing"><span></span><span></span><span></span></div>';m.appendChild(d);m.scrollTop=m.scrollHeight;}
 function remTyp(){const t=document.getElementById('typ');if(t)t.remove();}
+function getReply(msg) {
+  const m = msg.toLowerCase();
+  const isFr = document.body.classList.contains('fr-active');
+
+  // Experience / stages
+  if (m.includes('experience') || m.includes('expérience') || m.includes('stage') || m.includes('intern')) {
+    return isFr
+      ? "J'ai effectué 4 stages : chez RTE (en cours) sur les LLMs et RAG, chez UM6P sur la maintenance prédictive et l'hydrogène vert, à l'ONCF sur la prédiction de consommation énergétique ferroviaire, et chez OCP sur les systèmes embarqués. 😊"
+      : "I've done 4 internships: currently at RTE working on LLMs & RAG, at UM6P on predictive maintenance & green hydrogen, at ONCF on railway energy forecasting, and at OCP on embedded systems. 😊";
+  }
+  // Skills / compétences
+  if (m.includes('skill') || m.includes('compétence') || m.includes('stack') || m.includes('technology') || m.includes('technolog')) {
+    return isFr
+      ? "Mes compétences principales : LangChain, LangGraph, RAG, Ragas, PyTorch, TensorFlow, Scikit-learn, Python, Azure ML, Docker, MLflow, NLP et Computer Vision. Je travaille aussi avec des LLMs comme GPT, Mistral, Claude et Llama. 🧠"
+      : "My main skills: LangChain, LangGraph, RAG, Ragas, PyTorch, TensorFlow, Scikit-learn, Python, Azure ML, Docker, MLflow, NLP and Computer Vision. I also work with LLMs like GPT, Mistral, Claude and Llama. 🧠";
+  }
+  // LLMs
+  if (m.includes('llm') || m.includes('model') || m.includes('modèle') || m.includes('gpt') || m.includes('mistral')) {
+    return isFr
+      ? "J'ai travaillé avec 15+ LLMs : les séries GPT (4.1, 4.5, 5.5), Claude (Anthropic), Mistral Large 3, Llama 3.x, Gemini Pro, DeepSeek et Copilot. Chez RTE j'évalue et benchmark ces modèles sur des cas d'usage réels. ⚡"
+      : "I've worked with 15+ LLMs: GPT series (4.1, 4.5, 5.5), Claude (Anthropic), Mistral Large 3, Llama 3.x, Gemini Pro, DeepSeek and Copilot. At RTE I evaluate and benchmark these models on real use cases. ⚡";
+  }
+  // Projects / projets
+  if (m.includes('project') || m.includes('projet') || m.includes('github') || m.includes('chess') || m.includes('nlp') || m.includes('maintenance')) {
+    return isFr
+      ? "J'ai 3 projets GitHub : NLP Sentiment Analysis (XLM-RoBERTa, 67k phrases, 100 langues, ~75% précision), Predictive Maintenance (Isolation Forest, NASA CMAPSS, 1032 anomalies) et Chess AI (jeu d'échecs contre une IA avec commentaires en langage naturel via Gemini). 💻"
+      : "I have 3 GitHub projects: NLP Sentiment Analysis (XLM-RoBERTa, 67k sentences, 100 languages, ~75% accuracy), Predictive Maintenance (Isolation Forest, NASA CMAPSS, 1032 anomalies) and Chess AI (chess game against an AI with natural language commentary via Gemini). 💻";
+  }
+  // Available / disponible
+  if (m.includes('available') || m.includes('disponible') || m.includes('when') || m.includes('quand') || m.includes('start') || m.includes('octobre') || m.includes('october')) {
+    return isFr
+      ? "Je suis disponible dès octobre 2026 pour un CDI en France ou à l'international. Je suis mobile partout en France et ouverte aux opportunités à l'étranger. 📅"
+      : "I'm available from October 2026 for a permanent position in France or internationally. I'm open to relocation anywhere in France and abroad. 📅";
+  }
+  // Education / formation
+  if (m.includes('education') || m.includes('formation') || m.includes('school') || m.includes('école') || m.includes('university') || m.includes('master') || m.includes('ensa')) {
+    return isFr
+      ? "Je suis Ingénieure d'État diplômée de l'ENSA Tanger en Systèmes Électroniques et Automatiques, et actuellement en M2 Mesure et Traitement de l'Information à l'Université de Lorraine (Metz). 🎓"
+      : "I'm a State Engineer graduated from ENSA Tangier in Electronic & Automatic Systems, currently completing my M2 in Measurement and Information Processing at the University of Lorraine (Metz). 🎓";
+  }
+  // Contact
+  if (m.includes('contact') || m.includes('email') || m.includes('hire') || m.includes('recrut') || m.includes('reach')) {
+    return isFr
+      ? "Vous pouvez me contacter par email : alaouisalma065@gmail.com ou via LinkedIn. Je serai ravie d'échanger ! 😊"
+      : "You can reach me at alaouisalma065@gmail.com or via LinkedIn. I'd love to connect! 😊";
+  }
+  // RTE
+  if (m.includes('rte') || m.includes('current') || m.includes('actuel') || m.includes('now') || m.includes('maintenant')) {
+    return isFr
+      ? "Actuellement en stage chez RTE (Réseau de Transport d'Électricité) à Nancy, je travaille sur l'évaluation de LLMs internes et la conception d'une architecture RAG/LLM pour automatiser des trames documentaires techniques. Stack : LangChain, LangGraph, Azure ML, Streamlit. ⚡"
+      : "Currently interning at RTE (French electricity transmission network) in Nancy, I'm working on evaluating internal LLMs and designing a RAG/LLM architecture to automate technical document templates. Stack: LangChain, LangGraph, Azure ML, Streamlit. ⚡";
+  }
+  // Languages / langues
+  if (m.includes('language') || m.includes('langue') || m.includes('french') || m.includes('english') || m.includes('français') || m.includes('anglais')) {
+    return isFr
+      ? "Je parle français (C1 - TCF), anglais (B2 - TOEIC) et arabe (langue maternelle). 🌍"
+      : "I speak French (C1 - TCF), English (B2 - TOEIC) and Arabic (native). 🌍";
+  }
+  // Certifications
+  if (m.includes('certif') || m.includes('ibm') || m.includes('openai') || m.includes('toeic') || m.includes('tcf')) {
+    return isFr
+      ? "J'ai 5 certifications : IBM/Coursera (EDA for ML, 2024), IBM SkillsBuild (AI Fundamentals, 2026), OpenAI Academy (Agents and Workflows, 2026), TCF Français C1 et TOEIC Anglais B2. 🏅"
+      : "I have 5 certifications: IBM/Coursera (EDA for ML, 2024), IBM SkillsBuild (AI Fundamentals, 2026), OpenAI Academy (Agents and Workflows, 2026), TCF French C1 and TOEIC English B2. 🏅";
+  }
+  // Hello / greeting
+  if (m.includes('hi') || m.includes('hello') || m.includes('bonjour') || m.includes('salut') || m.includes('hey')) {
+    return isFr
+      ? "Bonjour ! Je suis l'assistant IA de Salma. Posez-moi des questions sur son parcours, ses compétences, ses projets ou sa disponibilité ! 😊"
+      : "Hello! I'm Salma's AI assistant. Ask me anything about her background, skills, projects or availability! 😊";
+  }
+  // Default
+  return isFr
+    ? "Bonne question ! Pour plus de détails, n'hésitez pas à contacter Salma directement : alaouisalma065@gmail.com 😊"
+    : "Great question! For more details, feel free to contact Salma directly at alaouisalma065@gmail.com 😊";
+}
+
 async function sendMsg(){
   const i=document.getElementById('cbInput');const msg=i.value.trim();
   if(!msg||cbLoad)return;
   i.value='';cbLoad=true;document.getElementById('cbSend').disabled=true;
   document.getElementById('cbSugg').style.display='none';
-  addMsg(msg,'user');hist.push({role:'user',content:msg});showTyp();
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYS,messages:hist})});
-    const data=await res.json();
-    const reply=data.content?.[0]?.text||"Try again!";
-    remTyp();addMsg(reply,'bot');hist.push({role:'assistant',content:reply});
-  }catch(e){remTyp();addMsg("Reach me at alaouisalma065@gmail.com 😊",'bot');}
-  cbLoad=false;document.getElementById('cbSend').disabled=false;i.focus();
+  addMsg(msg,'user');showTyp();
+  setTimeout(() => {
+    const reply = getReply(msg);
+    remTyp();addMsg(reply,'bot');
+    cbLoad=false;document.getElementById('cbSend').disabled=false;i.focus();
+  }, 800);
 }
 
 /* STATS COUNTER */
